@@ -10,16 +10,61 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public appPages = [
+  public totalPaths = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      name: 'Luz',
+      url: '/luz',
+      icon: ''
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      name: 'Oscuridad',
+      url: '/oscuridad',
+      icon: ''
+    },
+    {
+      name: 'Creacion',
+      url: '/creacion',
+      icon: ''
+    },
+    {
+      name: 'Destruccion',
+      url: '/destruccion',
+      icon: ''
+    },
+    {
+      name: 'Aire',
+      url: '/aire',
+      icon: ''
+    },
+    {
+      name: 'Agua',
+      url: '/agua',
+      icon: ''
+    },
+    {
+      name: 'Fuego',
+      url: '/fuego',
+      icon: ''
+    },
+    {
+      name: 'Tierra',
+      url: '/tierra',
+      icon: ''
+    },
+    {
+      name: 'Esencia',
+      url: '/esencia',
+      icon: ''
+    },
+    {
+      name: 'Ilusion',
+      url: '/ilusion',
+      icon: ''
+    },
+    {
+      name: 'Nigromancia',
+      url: '/nigromancia',
+      icon: ''
     }
   ];
 

@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "name": "Xvai",
+        "listClasses": [
+            {
+                "name": "Hechicero",
+                "level": 1,
+                "listPaths": [
+                    {
+                        "name": "Luz",
+                        "level": 30,
+                        "subPath": {
+                            "name": "Nobleza",
+                            "level": 10
+                        }
+                    }
+                ]
+            }
+        ],
+        "description": "A mage"
+    },
+    {
+        "id": 2,
+        "name": "Hugo",
+        "listClasses": [
+            {
+                "name": "Hechicero",
+                "level": 1,
+                "listPaths": [
+                    {
+                        "name": "Oscuridad",
+                        "level": 30,
+                        "subPath": {
+                            "name": "Nobleza",
+                            "level": 10
+                        }
+                    },
+                    {
+                        "name": "Creación",
+                        "level": 20,
+                        "freeAccessSpells": [
+                            {
+                                "name": "Apertura",
+                                "level": "1-10",
+                                "action": "Activa",
+                                "type": "Efecto",
+                                "effect": "Descripcion",
+                                "grades": [
+                                    {
+                                        "name": "Base",
+                                        "zeon": 30,
+                                        "intReq": 5
+                                    },
+                                    {
+                                        "name": "Intermedio",
+                                        "zeon": 70,
+                                        "intReq": 8
+                                    },
+                                    {
+                                        "name": "Avanzado",
+                                        "zeon": 100,
+                                        "intReq": 10
+                                    },
+                                    {
+                                        "name": "Arcano",
+                                        "zeon": 140,
+                                        "intReq": 12
+                                    }
+                                ],
+                                "typeMaintenance": "No"
+                            },
+                            {
+                                "name": "Saltar",
+                                "level": "1-10",
+                                "action": "Activa",
+                                "type": "Efecto",
+                                "effect": "Descripcion",
+                                "grades": [
+                                    {
+                                        "name": "Base",
+                                        "zeon": 50,
+                                        "intReq": 5,
+                                        "maintenance": 5
+                                    },
+                                    {
+                                        "name": "Intermedio",
+                                        "zeon": 80,
+                                        "intReq": 8,
+                                        "maintenance": 10
+                                    },
+                                    {
+                                        "name": "Avanzado",
+                                        "zeon": 100,
+                                        "intReq": 10,
+                                        "maintenance": 10
+                                    },
+                                    {
+                                        "name": "Arcano",
+                                        "zeon": 140,
+                                        "intReq": 12,
+                                        "maintenance": 15
+                                    }
+                                ],
+                                "typeMaintenance": "Asalto"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "description": "A mage"
+    }
+]

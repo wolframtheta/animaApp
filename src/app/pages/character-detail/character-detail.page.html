@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ficha de personaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-card-header>
+      <ion-card-title>{{pj?.name}}</ion-card-title>
+      <div *ngFor="let class of pj?.listClasses">
+        <ion-card-subtitle>Categoria: {{class.name}}</ion-card-subtitle>
+        <ion-card-subtitle>Nivel: {{class.level}}</ion-card-subtitle>
+        <div class="button-book" *ngFor="let path of class?.listPaths">
+          <div>
+            Libro de {{ path.name }}
+            <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
+          </div>
+        </div>
+        
+      </div>
+      
+    </ion-card-header>
+  </div>
+</ion-content>

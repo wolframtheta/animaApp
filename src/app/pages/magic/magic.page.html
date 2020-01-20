@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Libros de Magia</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" size-sm="2" size-md="2" *ngFor="let path of listPaths; let i = index;">
+        <ion-card (click)="openPath(i)">
+          <ion-card-content>
+            <img class="imgSpell" src="{{path.icon}}"/>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

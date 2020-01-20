@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Libros de {{ pathName }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let spell of listSpells; let i = index">
+      <ion-col>
+        <ion-card (click)="openSpell(i)">
+          <ion-card-header>
+            <ion-grid class="ion-no-padding">
+              <ion-row>
+                <ion-col class="ion-no-padding">
+                  <ion-card-title>
+                    {{ spell.nombre }}
+                  </ion-card-title>
+                  
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="!listSpellsHideStates[i]">
+                <ion-col class="ion-no-padding" size="2.6">
+                  <ion-card-subtitle>
+                    Nivel: {{ spell.nivel }}
+                  </ion-card-subtitle>
+                </ion-col>
+                <ion-col class="ion-no-padding">
+                  <ion-card-subtitle>
+                    Accion: {{ spell.accion }}
+                  </ion-card-subtitle>
+                </ion-col>
+                <ion-col class="ion-no-padding" size="6" style="text-align: center">
+                  <ion-card-subtitle>
+                    Tipo: {{ spell.tipo }}
+                  </ion-card-subtitle>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-header>
+          <ion-card-content *ngIf="!listSpellsHideStates[i]">
+            {{ spell.efecto }}
+            <ion-grid>
+              <ion-row style="background-color: black; color: white; border-radius: 5px 5px 0px 0px">
+                <ion-col style="background-color: black; color: white; border-radius: 5px 5px 0px 0px">
+                  Grado
+                </ion-col>
+                <ion-col *ngFor="let grado of spell.grados">
+                  {{ grado.nombre }}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col style="background-color: black; color: white;">
+                  Zeon
+                </ion-col>
+                <ion-col *ngFor="let grado of spell.grados" style="background-color: #EBEBEB;">
+                  {{ grado.zeon }}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col style="background-color: black; color: white;">
+                  Int. R.
+                </ion-col>
+                <ion-col *ngFor="let grado of spell.grados">
+                  {{ grado.intReq }}
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="spell.tipoMantenimiento != 'No'">
+                <ion-col style="background-color: black; color: white;">
+                  Mant.
+                  ({{spell.tipoMantenimiento}})
+                </ion-col>
+                <ion-col *ngFor="let grado of spell.grados" style="background-color: #EBEBEB;">
+                  {{ grado.mantenimiento }}
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="spell.tipoMantenimiento == 'No'">
+                <ion-col size="12" class="center-text" style="background-color: #EBEBEB;">
+                  No tiene mantenimiento.
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                  <h1>Descripcion de los grados</h1>
+                </ion-col>
+                <ion-col *ngFor="let grado of spell.grados" size="12">
+                  <ion-card-subtitle >
+                    <b>{{ grado.nombre }}</b> : {{ grado.descripcion }}
+                  </ion-card-subtitle>
+                </ion-col>
+                
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed"> 
+      <ion-fab-button color="dark">
+        <fa-icon [icon]="['fas','filter']"></fa-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button color="light" data-desc="Por nombre ascendiente" (click)="openPath(pathName, 'nombre','asc')">
+          <fa-icon size="lg" [icon]="['fas','sort-alpha-down']"></fa-icon>
+        </ion-fab-button>
+        <ion-fab-button color="light" data-desc="Por nombre descendiente" (click)="openPath(pathName, 'nombre','desc')">
+          <fa-icon size="lg" [icon]="['fas','sort-alpha-down-alt']"></fa-icon>
+        </ion-fab-button>
+        <ion-fab-button color="light" data-desc="Por nivel ascendiente" (click)="openPath(pathName, 'nivel','asc')">
+          <fa-icon size="lg" [icon]="['fas','sort-numeric-down']"></fa-icon>
+        </ion-fab-button>
+        <ion-fab-button color="light" data-desc="Por nivel descendiente" (click)="openPath(pathName, 'nivel','desc')">
+          <fa-icon size="lg" [icon]="['fas','sort-numeric-down-alt']"></fa-icon>
+        </ion-fab-button>
+        
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment scrollable>
+      <ion-segment-button  *ngFor="let path of listPaths; let i = index;">
+          <img class="imgSpell" src="{{path.icon}}" (click)="openPath(path.name)"/>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  
+</ion-footer>
+
